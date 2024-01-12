@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>RotMG Seasonal Loot Counter</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Encode+Sans+Expanded:wght@600&family=Nunito:wght@500&family=Red+Hat+Display&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./stylesheets/styles.css" />
+  </head>
+  <body>
+    <div id="whole" class="container">
+      <header>
+        <h4>RotMG Seasonal Loot Counter</h4>
+        <p>Season 11</p>
+      </header>
+      <div id="semi">
+        <div id="filterSearchBar">
+          <div id="filter">
+            <ul>
+              <li id="filterText">Filter:</li>
+              <select name="itemCategory" for="filterText">
+                <option value="All">All Items</option>
+                <option value="weapons">Weapons</option>
+                <option value="abilities">Abilties</option>
+                <option value="armor">Armor</option>
+                <option value="rings">Rings</option>
+                <option value="etc">Etc Items</option>
+              </select>
+              <li id="filterType">Type:</li>
+              <select name="itemType" for="filterType">
+                <option value="Any">Any Type</option>
+              </select>
+              <li id="filterObtained">Show:</li>
+              <select name="obtained" for="filterObtained">
+                <option value="all">All</option>
+                <option value="owned">Obtained</option>
+              </select>
+            </ul>
+          </div>
+          <div id="search">
+            <input type="text" placeholder="Search..." />
+          </div>
+        </div>
+        <div id="itemShowcaseAndCounter">
+          <div id="itemShowcase">
+            <!-- Item list will be populated here by JavaScript -->
+            <p>temp</p>
+          </div>
+          <div id="itemCounter">
+            <p>Dirk of Cronus</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
