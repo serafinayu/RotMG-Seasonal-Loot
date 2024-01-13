@@ -47,20 +47,37 @@ header > p {
   justify-content: space-between;
   align-items: center;
   padding: 0.5%;
+  font-size: 15px;
 }
 
 ul {
   list-style-type: none;
   display: flex;
   padding-left: 0;
+  align-items: center;
 }
 
 li {
-  padding: 0px 5%;
+  padding-left: 15px;
+  padding-right: 7px;
 }
 
 #search {
   margin-right: 10px;
+}
+
+/* Change the search into a button eventually and when clicked the row expands */
+#search > input {
+  border-radius: 5px;
+  border-color: transparent;
+  color: white;
+  font-family: "Encode Sans Expanded", sans-serif;
+  font-family: "Nunito", sans-serif;
+  font-family: "Red Hat Display", sans-serif;
+  font-weight: bold;
+  background-color: #4f4f4f;
+  text-align: center;
+  width: 100px;
 }
 
 #itemShowcaseAndCounter {
@@ -72,14 +89,46 @@ li {
 #itemShowcase {
   background: #4f4f4f;
   margin-left: 2%;
-  border-radius: 7px 7px 0px 0px;
+  border-radius: 10px 10px 0px 0px;
   width: 80%;
 }
 
 #itemCounter {
   background: #4f4f4f;
   margin: 0 2% 2%;
-  border-radius: 7px;
+  border-radius: 10px;
   width: 20%;
   height: 40%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+select {
+  font-family: "Encode Sans Expanded", sans-serif;
+  font-family: "Nunito", sans-serif;
+  font-family: "Red Hat Display", sans-serif;
+  border-radius: 3px;
+  background: #242222;
+  color: white;
+  border-color: #242222;
+  font-size: 15px;
+  margin-right: 1%;
+}
+
+select:hover {
+  background-color: #9c9c9c;
+  color: black;
+  font-weight: bold;
+}
+
+select::-ms-expand {
+  display: none;
+}
+
+option {
+  background-color: #575757;
+  color: black;
+  font-weight: bold;
+  border-radius: 10px;
 }
