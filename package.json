@@ -1,0 +1,21 @@
+{
+  "name": "rotmg-seasonal-loot",
+  "version": "1.0.0",
+  "description": "Context: I wanted a better way to visually log all the special loot I got over the season since RotMG only provides so much seasonal vault space. I plan to make this a web app using Firebase to store all item info.",
+  "main": "index.mjs",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start:dev": "nodemon -L ./src/index.mjs",
+    "start": "node ./src/index.mjs"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.18.2"
+  },
+  "devDependencies": {
+    "nodemon": "^3.0.3"
+  },
+  "type": "module"
+}
