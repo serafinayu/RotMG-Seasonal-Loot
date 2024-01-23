@@ -1,6 +1,7 @@
 import express from 'express';
 import axios from 'axios';
 import cheerio from 'cheerio';
+import { PassThrough } from 'stream';
 
 // Creates an instance of the express server and assigns it to a variable
 const app = express();
@@ -35,9 +36,10 @@ app.get("/api/items/weapons", (req, res) => {
 })
 
 
+// This module will use the realmeye wiki weapons page to get a list of all weapon types first
 const instance = axios.create({
-	baseURL: 'https://www.realmeye.com/wiki/',
-	timeout: 1000,
+	baseURL: 'https://www.realmeye.com/wiki/weapons',
+	// timeout: 1000,
 	headers: {
 		'User-Agent': 
 			'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36', 
@@ -46,23 +48,22 @@ const instance = axios.create({
 	}
 });
 
-instance.get('/steel-dagger')
-	// .then((res) => console.log(res.data))
-	.then((res) => {
-		const data = res.data;
-		const $ = cheerio.load(data);
+function getWeaponTypes() {
+    instance.get()
+        .then(res => { 
+            const $ = cheerio.load(res.data);
+			// object storing all a li elements of the first ul block
+            const $list = $('div.wiki-page ul:first li a');
+			const $listNoImgs = $('div.wiki-page ul:first li a:nth-child(-n + 2)');
+			// .each() to get the link of each a element
+			$listNoImgs.each((index, element) => {
+				// console.log($(element).text());
+				console.log($(element).attr('href'));
+			});
+        })
+        .catch((err) => console.log(err));
+}
 
-		let itemName = $("h1").text();
-		let tier = $("tr:contains('Tier'):first").children("th").text();
-		// let
-		// let weaponType = $("th:").text();
-
-		console.log(itemName);
-		console.log(tier);
-		// console.log(weaponType);
-
-	})
-	.catch((err) => console.error(err))
-
+getWeaponTypes();
 // Tell your app to start listening for visitors on a specific address and port
 app.listen(PORT, () => console.log(`Currently running on port ${PORT}`));
