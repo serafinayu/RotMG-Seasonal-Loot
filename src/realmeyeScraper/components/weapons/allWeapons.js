@@ -1,7 +1,6 @@
 import cheerio from 'cheerio';
 import axios from 'axios';
 
-
 // This module will use the realmeye wiki weapons page to get a list of all weapon types first
 const instance = axios.create({
 	baseURL: 'https://www.realmeye.com/',
@@ -15,7 +14,9 @@ const instance = axios.create({
 });
 
 function getWeaponTypes() {
-    instance.get()
+	let weaponUrls = [];
+
+    instance.get('wiki/weapons')
         .then(res => { 
             const $ = cheerio.load(res.data);
 			// object storing all a li elements of the first ul block
@@ -24,9 +25,12 @@ function getWeaponTypes() {
 			$listNoImgs.each((index, element) => {
 				// console.log($(element).text());
 				console.log($(element).attr('href'));
+				weaponUrls.push($(element).attr('href'));
 			});
         })
         .catch((err) => console.log(err));
+	
+		return weaponUrls;
 }
 
-getWeaponTypes();
+export {getWeaponTypes};

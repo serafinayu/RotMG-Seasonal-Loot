@@ -5,7 +5,7 @@
   "main": "index.mjs",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start:dev": "nodemon -L ./index.mjs",
+    "start:dev": "nodemon -L ./components/weapons/allWeapons.js",
     "start": "node ./index.mjs"
   },
   "keywords": [],

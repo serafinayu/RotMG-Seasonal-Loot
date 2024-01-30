@@ -1,7 +1,6 @@
 import express from 'express';
 import axios from 'axios';
 import cheerio from 'cheerio';
-import { PassThrough } from 'stream';
 
 // Creates an instance of the express server and assigns it to a variable
 const app = express();
@@ -38,7 +37,7 @@ app.get("/api/items/weapons", (req, res) => {
 
 // This module will use the realmeye wiki weapons page to get a list of all weapon types first
 const instance = axios.create({
-	baseURL: 'https://www.realmeye.com/wiki/weapons',
+	baseURL: 'https://www.realmeye.com/',
 	// timeout: 1000,
 	headers: {
 		'User-Agent': 
@@ -49,7 +48,7 @@ const instance = axios.create({
 });
 
 function getWeaponTypes() {
-    instance.get()
+    instance.get('wiki/weapons')
         .then(res => { 
             const $ = cheerio.load(res.data);
 			// object storing all a li elements of the first ul block
