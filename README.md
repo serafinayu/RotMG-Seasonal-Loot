@@ -1,4 +1,4 @@
-Context: I wanted a better way to visually log all the special loot I got over the season since RotMG only provides so much seasonal vault space. I plan to make this a web app using Firebase to store all item info.
+Context: I wanted a better way to visually log all the special loot I got over the season since RotMG only provides so much seasonal vault space.
 
 Packages installed:
 `npm i express` - Express.js framework for building RESTful API
@@ -20,3 +20,22 @@ Tiered Types:
 - Tiered: T0-T15
 - UT: Untiered
 - ST: Set Tier
+
+
+---
+
+Features I'd Like to Implement:
+- Create an item class
+  - Create an item for each entry in the database
+
+Codebase Improvements that can be made:
+- Use gitignore? Hide stuff like venv probably
+- Clean up file structure
+- Make sure all modules and functions have a docstring explanation
+
+---
+
+Development notes:
+- I was planning on using Firebase for the database but wanted more practice working with a locally run database and am now using Postgres
+- Learned basics of config files and connecting to a database
+- Built my first Flask API in realmeyeWebscraper
